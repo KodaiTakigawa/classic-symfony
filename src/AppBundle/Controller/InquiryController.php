@@ -64,24 +64,14 @@ class InquiryController extends Controller
 		$form = $this->cForm($inquiry);
 		$form->handleRequest($request);
 		if ($form->isValid()) {
-			$data = $form->getData();
 
-			$inquiry->setName($data->name);
-			$inquiry->setEmail($data['email']);
-			$inquiry->setTel($data['tel']);
-			$inquiry->setType($data['type']);
-			$inquiry->setContent($data['content']);
-
-			$em = $this->getDoctorine()->getManager();
+			// cFormを使う時はgetData()はいらない
+			// 自動で入る
+			$em = $this->getDoctrine()->getManager();
 			$em->persist($inquiry);
 			$em->flush();
 
-			$message = \Swift_message::newInstance();
-
 			return $this->redirect($this->generateUrl('app_inquiry_complete'));
-		} else {
-			dump($form->getErrors(true));
-			exit;	
 		}
 		return $this->render('Inquiry/index.html.twig', ['form' => $form->createView()]);
 	}

@@ -9,20 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class BlogController extends Controller
 {
     public function latestListAction(){
-        $blogList = [
-            [
-                'targetDate' => '2015/3/15',
-                'title' => 'report of tokyo-koen'
-            ],
-            [
-                'targetDate' => '2015/2/8',
-                'title' => 'practice these days'
-            ],
-            [
-                'targetDate' => '2015/1/3',
-                'title' => 'Nice to meet you'
-            ],
-        ];
+        $em = $this->getDoctrine()->getManager();
+        $blogArticleRepository = $em->getRepository('AppBundle:BlogArticle');
+        $blogList = $blogArticleRepository->findBy([], ['targetDate' => 'DESC']);
 
         return $this->render('Blog/latestList.html.twig', ['blogList' => $blogList]);
     }
