@@ -62,11 +62,11 @@ class InquiryController extends Controller
 	public function indexPostAction(Request $request){
 		$inquiry = new Inquiry();
 		$form = $this->cForm($inquiry);
-//		$form->handleRequest($request);
+		$form->handleRequest($request);
 		if ($form->isValid()) {
 			$data = $form->getData();
 
-			$inquiry->setName($data['name']);
+			$inquiry->setName($data->name);
 			$inquiry->setEmail($data['email']);
 			$inquiry->setTel($data['tel']);
 			$inquiry->setType($data['type']);
