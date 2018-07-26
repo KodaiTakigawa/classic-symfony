@@ -10,7 +10,7 @@ class ToppageController extends Controller
 {
 
     /**
-     * @Route("/")
+     * @Route("/", name="app_toppage_index")
      */
     public function indexAction(){
         $information = "5月と6月の公演情報を追加しました。";
