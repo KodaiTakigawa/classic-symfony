@@ -112,7 +112,7 @@ class Inquiry
      */
     public function getEmail()
     {
-        return $this->emial;
+        return $this->email;
     }
 
     /**
@@ -186,5 +186,6 @@ class Inquiry
     {
         return $this->content;
     }
+    
 }
 
