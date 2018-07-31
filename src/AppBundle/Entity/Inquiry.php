@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Inquiry
  *
  * @ORM\Table(name="inquiry")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\InquiryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\InquiryRepository")
  */
 class Inquiry
 {

@@ -34,8 +34,9 @@ class AdminInquiryListController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $inquiryRepository = $em->getRepository('AppBundle:Inquiry');
+        $inquiryList = $inquiryRepository->findAll([], ['id' => 'DESC']);
 
-        $inquiryList = $inquiryRepository->findAllByKeyword($keyword);
+//        $inquiryList = $inquiryRepository->findAllByKeyword($keyword);
 
         if ($_format == 'csv') {
             $response = new Response($this->createCsv($inquiryList));
