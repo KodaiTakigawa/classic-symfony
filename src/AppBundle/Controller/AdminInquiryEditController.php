@@ -72,22 +72,26 @@ class AdminInquiryEditController extends Controller
     //         ->getForm();
     // }
 
+    // private function createInquiryForm($inquiry){
+    //     $form = $this->createForm(new InquiryType(), $inquiry, []);
+    //     $form->add('processStatus', 'choice', [
+    //         'choices' => [
+    //             '未対応',
+    //             '対応中',
+    //             '対応済',
+    //         ],
+    //         'empty_data' => 0,
+    //         'expanded' => true,
+    //     ])
+    //     ->add('processMemo', 'textarea')
+    //     ->add('submit', 'submit', [
+    //         'label' => '保存',
+    //     ]);
+    //     return $form;
+    // }
+
     private function createInquiryForm($inquiry){
-        $form = $this->createForm(new InquiryType(), $inquiry, []);
-        $form->add('processStatus', 'choice', [
-            'choices' => [
-                '未対応',
-                '対応中',
-                '対応済',
-            ],
-            'empty_data' => 0,
-            'expanded' => true,
-        ])
-        ->add('processMemo', 'textarea')
-        ->add('submit', 'submit', [
-            'label' => '保存',
-        ]);
+        $form = $this->createForm(new InquiryProcessType(), $inquiry, []);
         return $form;
     }
-
 }

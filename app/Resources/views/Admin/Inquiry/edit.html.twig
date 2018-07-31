@@ -1,7 +1,5 @@
 {% extends "Admin/layout.html.twig" %}
-
 {% block title %}お問い合わせ管理{% endblock %}
-
 {% block body %}
 <h2 class="sub-header">お問い合わせ管理 - {{ inquiry.id }}</h2>
 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
@@ -59,5 +57,4 @@
     {{ form_widget(form.submit, {"attr": {"class":"btn btn-primary"}}) }}
 </div>
 {{ form_end(form) }}
-
 {% endblock %}
