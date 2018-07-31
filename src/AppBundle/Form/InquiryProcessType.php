@@ -18,9 +18,9 @@ class InquiryProcessType extends AbstractType
        $builder
        ->add('processStatus', 'choice', [
             'choices' => [
-                '未対応',
-                '対応中',
-                '対応済',
+                1 => '未対応',
+                2 => '対応中',
+                3 => '対応済',
             ],
             'empty_data' => 0,
             'expanded' => true,
@@ -50,3 +50,8 @@ class InquiryProcessType extends AbstractType
    }
 
 }
+
+
+// 変更したいのだけ
+// ->add()
+// で加える

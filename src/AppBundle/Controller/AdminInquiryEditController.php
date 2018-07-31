@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\InquiryType;
-
+use AppBundle\Form\InquiryProcessType;
 
 /**
  * @Route("/admin/inquiry")
@@ -95,3 +95,6 @@ class AdminInquiryEditController extends Controller
         return $form;
     }
 }
+
+
+// @ParamConverter()は自動的にエンティティを取得している。
